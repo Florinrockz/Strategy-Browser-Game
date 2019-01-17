@@ -11,7 +11,7 @@
         public function GetResources()
         {
             $sql="SELECT res.wood,res.stone,res.iron,res.gold,w.buildings FROM resources AS res 
-                LEFT JOIN users AS us ON res.id=us.id
+                RIGHT JOIN users AS us ON res.id=us.id
                 INNER JOIN world AS w ON w.id=us.id
                 WHERE us.username='".$_SESSION['loggedIn']."'"; 
                 $stmt=$this->db->query($sql);
@@ -56,7 +56,45 @@
                         $x++;
                     }
                 }
+                
+
             echo "</div>";
+            $bq="SELECT * FROM buildings";
+            $stmt_buildings=$this->db->query($bq);
+            $allBuildings=$stmt_buildings->fetchAll(PDO::FETCH_GROUP);
+            echo "<div class='buildingOptions'>";
+                for($x=1;$x<count($allBuildings)+1;$x++){
+                    echo "<div class='buidingBox'>".$allBuildings[$x][0]['name']."</div>";
+                }
+            echo "</div>";
+            ?>
+            <script>
+                $(".gridBox").hover(function(){
+                    $(this).css('background','#000fff');
+                },function(){
+                    $(this).css('background','inherit');
+                });
+
+                $('.gridBox').on('click',function(event){
+                    $('.buildingOptions').css('left',event.pageX);
+                    $('.buildingOptions').css('top',event.pageY);
+                    $('.buildingOptions').css('display','inline');
+                });
+                //buildingBox design
+                $('.buidingBox').css('background','white');
+                $('.buidingBox').css('float','left');
+                $('.buidingBox').css('width','30%');
+                $('.buidingBox').css('height','50px');
+                $('.buidingBox').css('border','1px solid black');
+                $('.buidingBox').css('margin','2px');
+                $('.buidingBox').css('line-height','50px');
+                $('.buidingBox').css('text-align','center');
+                //when building is clicked it should be bought
+                $('.buidingBox').click(function(){
+                    
+                });
+            </script>
+            <?php
         }
     }
     
