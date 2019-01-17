@@ -7,5 +7,5 @@ Technologies:<br>
 3.JavaScript<br>
 4.JQuery<br>
 -Backend:<br>
-1.PHP<br>
+1.PHP 7<br>
 2.MYSQL<br>
