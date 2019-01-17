@@ -2,10 +2,10 @@
 
 Technologies:<br>
 -Frontend:<br>
-1.HTML
-2.CSS
-3.JavaScript
-4.JQuery
+1.HTML<br>
+2.CSS<br>
+3.JavaScript<br>
+4.JQuery<br>
 -Backend:<br>
-1.PHP
-2.MYSQL
+1.PHP<br>
+2.MYSQL<br>
